@@ -1,0 +1,79 @@
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection;
+namespace learncsharp;
+
+class Program
+{
+    // public static void Main(string[] args)
+    // {
+    //     // PASS VALUE
+    //     int[] arr = LearnMethod.swap(1, 2);
+    //     Console.WriteLine(arr[0] + " " + arr[1]);
+    //     // PASS REFERENCE
+    //     LearnMethod.swap(ref arr[0], ref arr[1]);
+    //     Console.WriteLine(arr[0] + " " + arr[1]);
+    //     // // NESTED CLASS
+    //     new NestedClass("123");
+    //     NestedClass.InnerClass inner = new NestedClass.InnerClass();
+    //     inner.Print();
+    //     // Get type of a
+    //     int[] a = { 0, 1, 2, 3 };
+    //     Type t = a.GetType();
+    //     t.GetProperties().ToList().ForEach((PropertyInfo x) => Console.WriteLine(x.Name));
+    //     Console.WriteLine(t);
+    // }
+    // public static void Main(string[] args)
+    // {
+    //     User u = new User()
+    //     {
+    //         name = "Long",
+    //         age = 99
+
+    //     };
+    //     // u.PrintInfo();
+    //     // Get properties in User;
+    //     PropertyInfo[] properties = u.GetType().GetProperties();
+    //     Console.WriteLine(properties);
+    //     // Get Name of properties are in User
+    //     foreach (PropertyInfo property in properties)
+    //     {
+    //         Console.WriteLine(property);
+    //         foreach (var attribute in property.GetCustomAttributes(false))
+    //         {
+    //             var dess = attribute as DescriptionAttribute;
+    //             if (dess != null)
+    //             {
+    //                 DescriptionAttribute des = dess;
+    //                 // Get value of description attribute with specify property
+    //                 Console.WriteLine($"({property.Name}) - {des.Description}: {property.GetValue(u)}");
+    //             }
+    //             else
+    //             {
+    //                 Console.WriteLine(dess.ErrorMessage);
+    //             }
+    //         }
+    //     }
+    // }
+    // public static void Main(string[] args)
+    // {
+    //     Employer e = new Employer()
+    //     {
+    //         id = null,
+    //         name = "long1",
+    //         age = 100
+    //     };
+
+    //     ValidationContext ctx = new ValidationContext(e);
+    //     List<ValidationResult> result = new List<ValidationResult>();
+    //     bool kq = Validator.TryValidateObject(e, ctx, result, true);
+    //     if (!kq)
+    //     {
+    //         result.ToList().ForEach((err) =>
+    //         {
+    //             Console.WriteLine($"{err.MemberNames.First()}: {err.ErrorMessage}");
+    //         });
+    //     }
+
+    // }
+}
