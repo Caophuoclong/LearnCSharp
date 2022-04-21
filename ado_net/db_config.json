@@ -1,0 +1,8 @@
+{
+  "config": {
+    "server": "localhost,1433",
+    "database": "xtlab",
+    "user": "sa",
+    "password": "516489C@k"
+  }
+}

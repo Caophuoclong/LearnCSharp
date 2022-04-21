@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  mssql:
+    container_name: "mssql"
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    user: root
+    ports:
+      - 1433:1433
+    volumes:
+      - /home/phuoclong/db/sql_server/data:/var/opt/mssql/data
+      - /home/phuoclong/db/sql_server/bk:/var/opt/mssql/backup
+      
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=516489C@k
