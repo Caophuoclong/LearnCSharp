@@ -1,0 +1,40 @@
+﻿using System;
+namespace cs_di
+{
+    public class ClassA
+    {
+        public void ActionA()
+        {
+            System.Console.WriteLine("Action A");
+            ClassB b = new ClassB();
+            b.ActionB();
+        }
+
+    }
+    public class ClassB
+    {
+        public void ActionB()
+        {
+            System.Console.WriteLine("Action B");
+            ClassC c = new ClassC();
+            c.ActionC();
+
+        }
+    }
+    public class ClassC
+    {
+        public void ActionC()
+        {
+            System.Console.WriteLine("Action C");
+        }
+    }
+
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            ClassA a = new ClassA();
+            a.ActionA();
+        }
+    }
+}
