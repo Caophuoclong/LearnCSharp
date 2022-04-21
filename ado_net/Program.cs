@@ -18,12 +18,14 @@ namespace ado_net
             service.AddSingleton<ProductService>();
             ServiceProvider provider = service.BuildServiceProvider();
             ProductService productService = provider.GetService<ProductService>();
-            List<Product> products = productService.getProducts(5);
-            foreach (Product product in products)
-            {
-                System.Console.WriteLine(product.Id + " " + product.Name);
-            }
-
+            // List<Product> products = productService.getProducts(5);
+            // foreach (Product product in products)
+            // {
+            //     System.Console.WriteLine(product.Id + " " + product.Name);
+            // }
+            System.Console.WriteLine(productService.GetProductInfo(3));
+            // System.Console.WriteLine(productService.CountProduct());
+            // System.Console.WriteLine(productService.UpdateName(3, "C#"));
 
         }
     }
