@@ -1,0 +1,20 @@
+@page
+@model FirstPageModel
+@{
+    int number = 5;
+}
+<h1 style="color: red">Trang dau tien</h1>
+<p>@Model.Welcome()</p>
+<p>@Model.ViewData["title"]</p>
+<a asp-page="SecondPage">Second Page</a>
+@{
+    for(int i = 0; i <= number; i++){
+        <h2>@i</h2>
+    }
+}
+
+@functions{
+    public void OnGet(){
+        Model.index = 2;
+    }
+}
