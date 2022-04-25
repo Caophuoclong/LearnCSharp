@@ -1,0 +1,22 @@
+﻿@page
+@using firstRazor.Models
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@{
+    int age = 20;
+    string xxx = "<h1>Hi chao ban</h1>";
+    var product = new Product(){Name =" Long", Description = "Long", Price = 100};
+}
+<h1>Xin chao ban hien</h1>
+@Html.Raw(xxx)
+@if(age >= 18){
+    <h2>Ban da du tuoi de dang nhap</h2>
+}
+else{
+    <h2>Ban chua du tuoi de dang nhap</h2>
+}
+@await Html.PartialAsync("_ProductItem", product)
+@await Component.InvokeAsync("ViewProduct")

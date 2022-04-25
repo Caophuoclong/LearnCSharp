@@ -1,0 +1,10 @@
+@page "/sanpham/{id:int?}"
+@using firstRazor.Models
+@using firstRazor.Pages
+@model ProductModel
+<h1> San pham: @this.Request.RouteValues["id"] </h1>
+@{
+    var idString = this.Request.RouteValues["id"];
+    var id = Int32.Parse(idString.ToString());
+}
+@await Html.PartialAsync("_ProductItem", @Model.GetProduct(id))

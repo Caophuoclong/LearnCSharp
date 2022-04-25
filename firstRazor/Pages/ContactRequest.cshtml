@@ -1,0 +1,60 @@
+@page "/contact"
+@model ContactRequestModel
+
+<form class="form-horizontal bg-green" method="POST" asp-page="ContactRequest" enctype="multipart/form-data">
+    <div class="my-2">
+        <label class="form-label" asp-for="@Model.userContact.UserId"></label>
+        <input class="form-control" asp-for="@Model.userContact.UserId"/>
+        <span class="text-danger" asp-validation-for="@Model.userContact.UserId"></span>
+    </div>
+    <div class="my-2">
+        <label class="form-label" asp-for="@Model.userContact.UserName"></label>
+        <input class="form-control" asp-for="@Model.userContact.UserName"/>
+        <span class="text-danger" asp-validation-for="@Model.userContact.UserName"></span>
+    </div>
+    <div class="my-2">
+        <label class="form-label" asp-for="@Model.userContact.Email"></label>
+        <input class="form-control" asp-for="@Model.userContact.Email"/>
+        <span class="text-danger" asp-validation-for="@Model.userContact.Email"></span>
+    </div>
+    <div class="my-2">
+        <label class="form-label" asp-for="@Model.userContact.FName"></label>
+        <input class="form-control" asp-for="@Model.userContact.FName"/>
+        <span class="text-danger" asp-validation-for="@Model.userContact.FName"></span>
+    </div>
+    <div id="divUploadImage" class="my-2">
+        <label class="form-label p-2 border cursor-pointer" id="uploadFile" asp-for="@Model.FileUpload">
+            
+        </label>
+        <input class="form-control" asp-for="@Model.FileUpload" hidden/>
+        <br/>
+        <img class="my-2 img-fluid" id="reviewImage"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Gui</button>
+</form>
+@if(Model.userContact != null){
+
+<ul class="list-group my-4 alert alert-danger">
+    <li class="list-group-item bg-transparent " >
+        Id: @Model.userContact.UserId 
+    </li>
+    <li class="list-group-item bg-transparent " >Tai khoan: @Model.userContact.UserName</li>
+    <li class="list-group-item bg-transparent " >Email: @Model.userContact.Email</li>
+    <li class="list-group-item bg-transparent ">Ho va ten: @Model.userContact.FName</li>
+</ul>
+}
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("#FileUpload").change((event)=>{
+           const file = event.target.files[0];
+           const fileName = file.name;
+           $("#uploadFile").text(fileName);
+           const fileUrl = URL.createObjectURL(file);
+            $("#reviewImage").attr("src", fileUrl);
+        })
+    });
+</script>
+}
