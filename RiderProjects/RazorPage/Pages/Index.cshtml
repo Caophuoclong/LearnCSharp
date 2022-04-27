@@ -1,0 +1,60 @@
+@page
+@using RazorPage.Utils
+@model RazorPage.IndexModel
+@{
+    ViewData["title"] = "Bài viết";
+}
+
+<p>
+    <a asp-page="Create">Tạo mới</a>
+</p>
+<form method="get">
+    <div class="form-group">
+        
+    <label>
+        Tìm kiếm
+    </label>
+    <div class="input-group">
+
+
+        <br/>
+        <input type="text" name="searchString" class="form-control">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Gửi</button>
+        </div>
+    </div>
+    </div>
+<small>@ViewData["count"]</small>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Articles[0].ArticleTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Articles[0].ArticleCreatedAt)
+            </th>
+            <th>
+                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Articles) {
+        <tr>
+            <td>
+                @Html.Raw(Markdown.Parse(item.ArticleTitle))
+            </td>
+            <td>
+                @item.ArticleCreatedAt.ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ArticleId">Chỉnh sửa</a> |
+                <a asp-page="./Details" asp-route-id="@item.ArticleId">Chi tiết</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ArticleId">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

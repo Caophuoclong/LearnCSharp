@@ -1,0 +1,42 @@
+@page "/signup"
+@model BookCollection.Pages.Signup
+@{
+    ViewData["title"] = "Đăng ký";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewData["title"]</title>
+</head>
+<body>
+<div class="container">
+    <form method="post" asp-page="Signup" >
+        <div class="form-group my-3 col-md-4 mx-auto">
+            <label asp-for="_account.userName"></label>
+            <input class="form-control" asp-for="_account.userName">
+        </div>
+        <div class="form-group my-3 col-md-4 mx-auto">
+            <label asp-for="_account.password"></label>
+            <input class="form-control" asp-for="_account.password">
+        </div>
+        <div class="form-group my-3 col-md-4 mx-auto">
+            <label asp-for="confirmPassword"></label>
+            <input class="form-control" asp-for="confirmPassword">
+        </div>
+        <div class="form-group my-3 col-md-4 mx-auto">
+            <label asp-for="_user.fullName"></label>
+            <input class="form-control" asp-for="_user.fullName">
+        </div>
+        <div class="form-group my-3 col-md-4 mx-auto">
+            <label asp-for="_user.email"></label>
+            <input class="form-control" asp-for="_user.email">
+        </div>
+        <div class="d-flex justify-content-end col-md-8">
+        <button type="submit" class="btn btn-primary">Đăng ký</button>
+            
+        </div>
+    </form>
+</div>
+</body>
+</html>

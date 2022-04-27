@@ -1,0 +1,39 @@
+@page "/articles/{id:int}"
+@model RazorPage.EditModel
+
+<h4>Bài viết</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Articles.ArticleId" />
+            <div class="form-group">
+                <label asp-for="Articles.ArticleTitle" class="control-label"></label>
+                <textarea asp-for="Articles.ArticleTitle" class="form-control" ></textarea>
+                <span asp-validation-for="Articles.ArticleTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Articles.ArticleContent" class="control-label"></label>
+                <textarea asp-for="Articles.ArticleContent" class="form-control" ></textarea>
+                <span asp-validation-for="Articles.ArticleContent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Articles.ArticleCreatedAt" class="control-label"></label>
+                <input asp-for="Articles.ArticleCreatedAt" class="form-control" />
+                <span asp-validation-for="Articles.ArticleCreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+     <div class="col-md-8" style="border: 1px solid black">
+            <p id="articleTitle"></p>
+         <p id="articleContent"></p></div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+

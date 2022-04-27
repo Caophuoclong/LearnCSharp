@@ -1,0 +1,36 @@
+@page
+@model RazorPage.DeleteModel
+@{
+    ViewData["title"] = "Xóa";
+}
+<h3>Bạn có chắc là muốn xóa bài viết này?</h3>
+<div>
+    <h4>Bài viết</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Articles.ArticleTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Articles.ArticleTitle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Articles.ArticleContent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Articles.ArticleContent)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Articles.ArticleCreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Articles.ArticleCreatedAt)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Articles.ArticleId" />
+        <input type="submit" value="Xóa luôn" class="btn btn-danger" /> |
+        <a asp-page="./Index">Trở về</a>
+    </form>
+</div>

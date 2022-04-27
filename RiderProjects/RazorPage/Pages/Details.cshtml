@@ -1,0 +1,32 @@
+@page "/detail/{id:int}"
+@using RazorPage.Utils
+@model RazorPage.DetailsModel
+
+<div>
+    <h4>Bài Viết</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Articles.ArticleTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.Raw(Markdown.Parse(Model.Articles.ArticleTitle))
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Articles.ArticleContent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.Raw(Markdown.Parse(Model.Articles.ArticleContent))
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Articles.ArticleCreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Articles.ArticleCreatedAt)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Articles.ArticleId">Chỉnh sửa</a> |
+    <a asp-page="./Index">Trở về</a>
+</div>
